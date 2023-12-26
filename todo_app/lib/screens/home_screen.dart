@@ -24,13 +24,14 @@ class HomeScreen extends ConsumerWidget {
     final allTasks = _getAllTasks(taskState.tasks, ref);
 
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            AppBackground(
-              headerHeight: deviceSize.height * 0.13,
-              header: SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
+      body: Stack(
+        children: [
+          AppBackground(
+            headerHeight: deviceSize.height * 0.15,
+            header: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -47,37 +48,37 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
             ),
-            Positioned(
-              top: 120,
-              left: 0,
-              right: 0,
-              child: SafeArea(
-                child: SingleChildScrollView(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      DisplayListOfTasks(
-                        tasks: allTasks,
-                      ),
-                      const Gap(20),
-                      ElevatedButton(
-                        onPressed: () => context.push(RouteLocation.createTask),
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: DisplayWhiteText(
-                            text: 'New Task',
-                          ),
+          ),
+          Positioned(
+            top: 80,
+            left: 0,
+            right: 0,
+            child: SafeArea(
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    DisplayListOfTasks(
+                      tasks: allTasks,
+                    ),
+                    const Gap(20),
+                    ElevatedButton(
+                      onPressed: () => context.push(RouteLocation.createTask),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: DisplayWhiteText(
+                          text: 'New Task',
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

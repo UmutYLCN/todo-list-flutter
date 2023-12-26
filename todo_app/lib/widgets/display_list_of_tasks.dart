@@ -17,7 +17,7 @@ class DisplayListOfTasks extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final deviceSize = context.deviceSize;
-    final height = deviceSize.height * 0.65;
+    final height = deviceSize.height * 0.7;
 
     final emptyTasksAlert = isCompletedTasks
         ? 'There is no completed task yet'
